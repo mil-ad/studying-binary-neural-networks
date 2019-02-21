@@ -1,0 +1,8 @@
+# platform: linux-64
+
+name: studying-bnns
+dependencies:
+  - tensorflow-gpu=1.8.0
+  - pyyaml
+  - python=3.5.4
+  - pip

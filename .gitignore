@@ -1,0 +1,13 @@
+*.tfrecord*
+_MNIST_DATA/*
+_sessions/
+_pinned_sessions/
+*tfevents*
+*.meta
+*.index
+*checkpoint*
+log.txt
+tmux-*
+._*
+.DS_Store
+*.pyc
