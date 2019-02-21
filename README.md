@@ -16,12 +16,12 @@ This would create a conda environment called `studying-bnns`.
 ```bash
 $ conda activate studying-bnns
 
-# Run an experiment defined in a YAML file
+# Run an experiment by passing args
 $ python run_with_yaml.py --model binary_connect_mlp \
     --dataset mnist --epochs 250 --batch-size 100 \
     --binarization deterministic-binary
 
-# Run an experiment by passing args
+# Run an experiment defined in a YAML file
 python run_with_args.py some_experiment.yaml
 ```
 
