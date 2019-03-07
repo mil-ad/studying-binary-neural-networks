@@ -1,8 +1,3 @@
-"""
-Presents MNIST data as a tf.data.Dataset object similar to what we do for
-(Tiny) ImageNet so that we can quickly switch to using MNIST for development
-and debugging purposes.
-"""
 from __future__ import division
 from __future__ import print_function
 from __future__ import absolute_import

@@ -7,13 +7,9 @@ import tensorflow as tf
 
 from datasets import CIFAR10, CIFAR10_GCN_WHITENED
 from datasets import MNIST
-from datasets import TinyImageNet
 
 from models import AlexNet
-from models import BWN  # Binary-Weight Network (from XNOR-Net)
 import models.binaryconnect as binaryconnect
-import models.binarynet as binarynet   # BinaryConnect + binary activation
-from models import DebugNet  # Small CNN for training on MNIST
 
 from train_utils import train
 
@@ -27,8 +23,6 @@ def get_dataset(dataset_name, num_epochs, batch_size):
     elif dataset_name == 'cifar10':
         # dataset = CIFAR10(num_epochs, batch_size, validation_size=5000)
         dataset = CIFAR10_GCN_WHITENED(num_epochs, batch_size)
-    elif dataset_name == 'tinyimagenet':
-        dataset = TinyImageNet(num_epochs, batch_size, validation_size=10000)
     else:
         raise ValueError('Dataset option not valid.')
 
@@ -73,17 +67,6 @@ def get_model_fn(model_name, binarization, disable_batch_norm, disable_weight_co
             # Paper settings: 500 epochs, batch size 50
             model = binaryconnect.CNN(input_images, is_training, num_classes,
                                       binary, stochastic, **kwargs)
-
-        elif model_name == 'binarynet_mlp':
-            model = binarynet.MLP(input_images, is_training,
-                                  keep_prob, num_classes,
-                                  binary, stochastic)  # TODO
-
-        elif model_name == 'bwn':
-            model = BWN(input_images, keep_prob, num_classes, weight_decay=0.0)
-
-        elif model_name == 'debugnet':
-            model = DebugNet(input_images, keep_prob)
 
         return model
 

@@ -41,7 +41,7 @@ def binary_connect_optimiser(global_step_op, NUM_EPOCHS, steps_per_epoch,
     tf.summary.scalar('Total loss', total_loss)
     tf.summary.scalar('Learning Rate', learning_rate)
 
-    return train_op
+    return train_op, total_loss
 
 
 def alexnet_optimiser(global_step_op, labels, model_output):
@@ -70,4 +70,4 @@ def alexnet_optimiser(global_step_op, labels, model_output):
     tf.summary.scalar('total loss', total_loss)
     tf.summary.scalar('Learning Rate', learning_rate)
 
-    return train_op
+    return train_op, total_loss
